@@ -33,6 +33,10 @@ Markdown file
 - 用jinja 2輸出到目標資料夾
 - 嘗試YT API
 
+- [模板设计者文档](http://docs.jinkan.org/docs/jinja2/templates.html)
+- [jinja2.Template.render](http://docs.jinkan.org/docs/jinja2/api.html#jinja2.Template.render) 
+- [jinja2.FileSystemLoader](http://docs.jinkan.org/docs/jinja2/api.html?highlight=filesystemloader#jinja2.FileSystemLoader)
+
 ## 資源
 
 - [Playlists: list](https://developers.google.com/youtube/v3/docs/playlists/list) 
