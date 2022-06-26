@@ -18,7 +18,8 @@ def main():
     print('--- Main ---')
     env = set_Jinja2_Env()
     template = env.get_template('TestNote.md')
-    print(template.render(data = test_index_data()))
+    # print(template.render(data = test_index_data()))
+    template.stream(data = test_index_data()).dump('note_out.md',encoding='utf8')
     pass
 
 if __name__ == '__main__':
