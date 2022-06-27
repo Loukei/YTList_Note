@@ -30,7 +30,6 @@ Markdown file
 
 ## Next step
 
-- 用jinja 2輸出到目標資料夾
 - 嘗試YT API
 
 - [模板设计者文档](http://docs.jinkan.org/docs/jinja2/templates.html)
