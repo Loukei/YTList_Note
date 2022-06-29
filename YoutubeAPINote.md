@@ -76,8 +76,8 @@ Accept: application/json
 - [How do I get info about a Youtube video's chapters from the API?](https://stackoverflow.com/questions/63821605/how-do-i-get-info-about-a-youtube-videos-chapters-from-the-api)
 - [影片章節](https://support.google.com/youtube/answer/9884579?hl=zh-Hant)
 - [How do I get video durations with YouTube API version 3?](https://stackoverflow.com/questions/15596753/how-do-i-get-video-durations-with-youtube-api-version-3)
+- [Python爬蟲實例 YouTube-使用 YouTube Data API](https://blog.jiatool.com/posts/youtube_spider_api/#-%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F)
 
 ## Ref
 
-- [Python爬蟲實例 YouTube-使用 YouTube Data API](https://blog.jiatool.com/posts/youtube_spider_api/#-%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F)
 - [Google API Client](https://github.com/googleapis/google-api-python-client)
