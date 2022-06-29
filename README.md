@@ -31,6 +31,15 @@ Markdown file
 ## Next step
 
 - 嘗試YT API
+  - 建立影片模型
+    - 如何記錄影片時間?
+      - 使用`timedelta`
+        - 要特別處理字串與時間的轉換
+  - 考慮使用官方API直接寫
+    - 會比較肥，因為它包含了一些其他的服務
+  - 如果用QuickType來用，做model會比較快
+    - 要研究`json_schema`，比較能做出準確的模型
+      - [json schema foramt](https://opis.io/json-schema/2.x/formats.html) 
 
 - [模板设计者文档](http://docs.jinkan.org/docs/jinja2/templates.html)
 - [jinja2.Template.render](http://docs.jinkan.org/docs/jinja2/api.html#jinja2.Template.render) 

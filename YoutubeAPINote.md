@@ -25,7 +25,7 @@ Playlist 網址範例:
 
 - 需要的資料:
   - title:                影片名稱
-  - length:               影片時長
+  - duration:             影片時長
   - description:          影片敘述
   - chapters:             影片的各個章節，這是YT的一種功能，可以把影片根據起始時間分段
     - chapter_start       章節開始時間
