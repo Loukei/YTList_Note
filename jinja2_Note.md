@@ -43,3 +43,7 @@ template.stream(data = test_index_data()).dump('note_out.md',encoding='utf8') //
 
 - [How do I render jinja2 output to a file in Python instead of a Browser](https://stackoverflow.com/questions/11857530/how-do-i-render-jinja2-output-to-a-file-in-python-instead-of-a-browser)
 - [class jinja2.environment.TemplateStream](http://docs.jinkan.org/docs/jinja2/api.html?highlight=stream#jinja2.environment.TemplateStream)
+
+- [模板设计者文档](http://docs.jinkan.org/docs/jinja2/templates.html)
+- [jinja2.Template.render](http://docs.jinkan.org/docs/jinja2/api.html#jinja2.Template.render) 
+- [jinja2.FileSystemLoader](http://docs.jinkan.org/docs/jinja2/api.html?highlight=filesystemloader#jinja2.FileSystemLoader)

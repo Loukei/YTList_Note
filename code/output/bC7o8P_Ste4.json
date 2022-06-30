@@ -1,6 +1,4 @@
 {
-    "kind": "youtube#videoListResponse",
-    "etag": "0KBL-WX3O9J3jTN2f15K-cG9cgk",
     "items": [
       {
         "kind": "youtube#video",
@@ -68,9 +66,5 @@
           "projection": "rectangular"
         }
       }
-    ],
-    "pageInfo": {
-      "totalResults": 1,
-      "resultsPerPage": 1
-    }
+    ]
 }
