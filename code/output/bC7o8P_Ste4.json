@@ -1,1 +1,76 @@
-{'a':1}
+{
+    "kind": "youtube#videoListResponse",
+    "etag": "0KBL-WX3O9J3jTN2f15K-cG9cgk",
+    "items": [
+      {
+        "kind": "youtube#video",
+        "etag": "G-FklrlwDBTo8B0x8Vf4uOT7gRQ",
+        "id": "bC7o8P_Ste4",
+        "snippet": {
+          "publishedAt": "2022-06-27T16:43:45Z",
+          "channelId": "UC8butISFwT-Wl7EV0hUK0BQ",
+          "title": "Greedy Algorithms Tutorial – Solve Coding Challenges",
+          "description": "Learn how to use greedy algorithms to solve coding challenges. Many tech companies want people to solve coding challenges during interviews and many of the challenges can be solved using a greedy algorithm. A greedy algorithm is any algorithm that follows the problem-solving heuristic of making 
+  the locally optimal choice at each stage.\n\n✏️ Course from Tanishq Chaudhary. Check out his channel: https://www.youtube.com/c/TanishqChaudhary1337/\n\nLinks t
+  o coding challenges on InterviewBit:\n🔗 Highest product: https://www.interviewbit.com/problems/highest-product/\n🔗 Bulbs: https://www.interviewbit.com/problems/interview-questions/\n🔗 Disjoint intervals: https://www.interviewbit.com/problems/disjoint-intervals/\n🔗 Largest permutation: https://www.interviewbit.com/problems/largest-permutation/\n🔗 Meeting rooms: https://www.interviewbit.com/problems/meeting-rooms/\n🔗 Distribute candy: https://www.interviewbit.com/problems/distribute-candy/\n🔗 Seats: https://www.interviewbit.com/problems/seats/\n🔗 Assign mice to holes: https://www.interviewbit.com/problems/assign-mice-to-holes/\n🔗 Majority element: https://www.interviewbit.com/problems/majority-element/\n🔗 Gas station: https://www.interviewbit.com/problems/gas-station/\n\n⭐️ Course 
+  contents ⭐️\n⌨️ (0:00:00) Greedy introduction\n⌨️ (0:04:32) Bulbs\n⌨️ (0:12:11) Highest product\n⌨️ (0:17:08) Disjoint intervals\n⌨️ (0:28:43) Largest permutati
+  on\n⌨️ (0:38:30) Meeting rooms\n⌨️ (0:49:25) Distribute candy\n⌨️ (1:03:13) Seats\n⌨️ (1:19:13) Assign mice to holes\n⌨️ (1:24:19) Majority element\n⌨️ (1:35:28
+  ) Gas station\n⌨️ (1:52:39) End\n\n--\n\n🎉 Thanks to our Champion and Sponsor supporters:\n👾 Raymond Odero\n👾 Agustín Kussrow\n👾 aldo ferretti\n👾 Otis Morg
+  an\n👾 DeezMaster\n\n--\n\nLearn to code for free and get a developer job: https://www.freecodecamp.org\n\nRead hundreds of articles on programming: https://freecodecamp.org/news\n\nAnd subscribe for new videos on technology every day: https://youtube.com/subscription_center?add_user=freecodecamp",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/bC7o8P_Ste4/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/bC7o8P_Ste4/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/bC7o8P_Ste4/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            },
+            "standard": {
+              "url": "https://i.ytimg.com/vi/bC7o8P_Ste4/sddefault.jpg",
+              "width": 640,
+              "height": 480
+            },
+            "maxres": {
+              "url": "https://i.ytimg.com/vi/bC7o8P_Ste4/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+            }
+          },
+          "channelTitle": "freeCodeCamp.org",
+          "categoryId": "27",
+          "liveBroadcastContent": "none",
+          "defaultLanguage": "en",
+          "localized": {
+            "title": "Greedy Algorithms Tutorial – Solve Coding Challenges",
+            "description": "Learn how to use greedy algorithms to solve coding challenges. Many tech companies want people to solve coding challenges during interviews and many of the challenges can be solved using a greedy algorithm. A greedy algorithm is any algorithm that follows the problem-solving heuristic of making the locally optimal choice at each stage.\n\n✏️ Course from Tanishq Chaudhary. Check out his channel: https://www.youtube.com/c/TanishqChaudhary1337/\n\nLinks
+   to coding challenges on InterviewBit:\n🔗 Highest product: https://www.interviewbit.com/problems/highest-product/\n🔗 Bulbs: https://www.interviewbit.com/problems/interview-questions/\n🔗 Disjoint intervals: https://www.interviewbit.com/problems/disjoint-intervals/\n🔗 Largest permutation: https://www.interviewbit.com/problems/largest-permutation/\n🔗 Meeting rooms: https://www.interviewbit.com/problems/meeting-rooms/\n🔗 Distribute candy: https://www.interviewbit.com/problems/distribute-candy/\n🔗 Seats: https://www.interviewbit.com/problems/seats/\n🔗 Assign mice to holes: https://www.interviewbit.com/problems/assign-mice-to-holes/\n🔗 Majority element: https://www.interviewbit.com/problems/majority-element/\n🔗 Gas station: https://www.interviewbit.com/problems/gas-station/\n\n⭐️ Course contents ⭐️\n⌨️ (0:00:00) Greedy introduction\n⌨️ (0:04:32) Bulbs\n⌨️ (0:12:11) Highest product\n⌨️ (0:17:08) Disjoint intervals\n⌨️ (0:28:43) Largest permuta
+  tion\n⌨️ (0:38:30) Meeting rooms\n⌨️ (0:49:25) Distribute candy\n⌨️ (1:03:13) Seats\n⌨️ (1:19:13) Assign mice to holes\n⌨️ (1:24:19) Majority element\n⌨️ (1:35:
+  28) Gas station\n⌨️ (1:52:39) End\n\n--\n\n🎉 Thanks to our Champion and Sponsor supporters:\n👾 Raymond Odero\n👾 Agustín Kussrow\n👾 aldo ferretti\n👾 Otis Mo
+  rgan\n👾 DeezMaster\n\n--\n\nLearn to code for free and get a developer job: https://www.freecodecamp.org\n\nRead hundreds of articles on programming: https://freecodecamp.org/news\n\nAnd subscribe for new videos on technology every day: https://youtube.com/subscription_center?add_user=freecodecamp"
+          },
+          "defaultAudioLanguage": "en"
+        },
+        "contentDetails": {
+          "duration": "PT1H53M9S",
+          "dimension": "2d",
+          "definition": "hd",
+          "caption": "false",
+          "licensedContent": true,
+          "contentRating": {},
+          "projection": "rectangular"
+        }
+      }
+    ],
+    "pageInfo": {
+      "totalResults": 1,
+      "resultsPerPage": 1
+    }
+}

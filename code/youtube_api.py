@@ -2,7 +2,6 @@ import requests
 import os
 import dotenv
 import json
-# import models
 
 def get_playlist_Info(apikey:str,video_id:str):
     """
@@ -26,11 +25,8 @@ def main():
     try:
         dotenv.load_dotenv()
         vid:str = "bC7o8P_Ste4" 
-        # reply:requests.Response = get_videoInfo(apikey=os.getenv("YTAPI_KEY"), video_id=vid)
-        # save reply to file so we can focus on scrape data
-        with open(file=f'code/output/{vid}.json',mode='w+',encoding='utf8') as outfile:
-            outfile.write("{'a':1}")
-        
+        reply:requests.Response = get_videoInfo(apikey=os.getenv("YTAPI_KEY"), video_id=vid)
+        print(reply.text)
     except Exception as e:
         print(e)
     pass
