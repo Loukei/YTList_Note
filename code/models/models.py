@@ -1,42 +1,24 @@
 """
 Define the models for Youtube Video and Youtube Playlist
 """
-from base64 import decode
-from typing import List
-from datetime import timedelta
-from dataclasses import dataclass
-
-import ytvideos
+from model_ytvideo import YTVideo, yt_video_from_dict
 import json
 
-# @dataclass
-# class YTVideoChapter:
-#     """VideoChapter records the chapter info in the video
+def test_model_ytvideo(fp:str):
+    with open(file=fp,mode='r',encoding='utf8') as file:
+        d:dict = json.load(fp=file)
+        video:YTVideo = yt_video_from_dict(d["items"][0])
 
-#     Args:
-#         TypedDict (_type_): _description_
-#     """
-#     start_time:timedelta
-#     title:str
+        # print(video.id)
+        # # print(video.content_details)
+        # print(video.content_details.duration)
+        # print(video.content_details.caption)
 
-# @dataclass
-# class YTVideo:
-#     id:str
-#     title:str
-#     duration:timedelta
-#     description:str
-#     chapters:List[YTVideoChapter]
-
-def test_model():
-    fp:str = "./code/output/bC7o8P_Ste4.json"
-    f = open(fp, 'r', 'utf8')
-    data = json.load(f)
-    # with open(file=fp,mode='r',encoding='utf8') as file:
-    #     d:dict = json.load(fp=file) # TODO: JSONDecodeError
-    #     video:ytvideos.YTVideo = ytvideos.yt_video_from_dict(d)
-    #     print(video.id)
+        # # print(video.snippet)
+        # print(video.snippet.title)
+        # print(video.snippet.description)
     pass
 
 if __name__ == "__main__":
-    test_model()
+    test_model_ytvideo("./code/output/bC7o8P_Ste4.json")
     pass

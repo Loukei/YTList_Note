@@ -1,6 +1,8 @@
 # YTList_Note
 
-A script that Youtube (course) playlist on markdown note.
+Turn youtube playlist or youtube video title into markdown note.
+
+[![OSCS Status](https://www.oscs1024.com/platform/badge/Loukei/YTList_Note.svg?size=small)](https://www.oscs1024.com/project/Loukei/YTList_Note?ref=badge_small)
 
 ## 情況
 
@@ -46,23 +48,15 @@ Markdown file
       - 把Postman上的python程式碼複製下來看能不能用python實現呼叫
   - 用QuickType快速生成我們需要的`models.py`
     - 複製Postman上面的JSON reply存檔`videos_example.json`
+      - **(採坑)**要注意複製下來的JOSN檔案格式有沒有被破壞，不然後面會沒辦法讀檔
     - 按照YT官方文件，除了我們感興趣的屬性以外，其餘的都刪掉
-      - 如果屬性值有長字串，則可以刪掉多餘的內容，減少QuickType處裡時間
+      - 如果屬性值有長字串，則可以刪掉多餘的內容，減少QuickType處理時間
     - 將修改過後的`videos_example.json`貼到QuickType來快速製作`models.py`
+      - 建議先把JSON轉成JSON schema，因為有些文字格式像是`email,date,address,IP`可以在schema裡面做手動修正
+        - [JSON Schema - string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times)
+      - QuickType目前不支援JSON Schema的`duration`格式
+      - 正在考慮不用Quick改成自己寫，一部分是因為原本的結構比較複雜，另一部分是解析章節的部分還是要自己做
     - 測試`models.py`
-
-## Next step
-
-- 嘗試YT API
-  - 建立影片模型
-    - 如何記錄影片時間?
-      - 使用`timedelta`
-        - 要特別處理字串與時間的轉換
-  - 考慮使用官方API直接寫
-    - 會比較肥，因為它包含了一些其他的服務
-  - 如果用QuickType來用，做model會比較快
-    - 要研究`json_schema`，比較能做出準確的模型
-      - [json schema foramt](https://opis.io/json-schema/2.x/formats.html) 
 
 ## 資源
 

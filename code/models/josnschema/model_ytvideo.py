@@ -138,17 +138,3 @@ def yt_video_from_dict(s: Any) -> YTVideo:
 
 def yt_video_to_dict(x: YTVideo) -> Any:
     return to_class(YTVideo, x)
-
-
-def test():
-    try:
-        fp:str = "./code/output/bC7o8P_Ste4.json"
-        with open(file=fp,mode='r',encoding='utf8') as file:
-            print(file.read())
-    except Exception as e:
-        print(e)
-    pass
-
-if __name__ == "__main__":
-    test()
-    pass
