@@ -33,7 +33,8 @@ Playlist 網址範例:
 
 ### 方法
 
-[Videos: list](https://developers.google.com/youtube/v3/docs/videos/list?apix_params=%7B%22part%22%3A%5B%22snippet%22%5D%2C%22id%22%3A%5B%22bC7o8P_Ste4%22%5D%7D)用來取得影片的資料
+- [Videos: list](https://developers.google.com/youtube/v3/docs/videos/list?apix_params=%7B%22part%22%3A%5B%22snippet%22%5D%2C%22id%22%3A%5B%22bC7o8P_Ste4%22%5D%7D)
+  - 用來取得影片的資料
 
 #### Request
 

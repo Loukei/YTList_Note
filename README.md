@@ -55,7 +55,8 @@ Markdown file
       - 建議先把JSON轉成JSON schema，因為有些文字格式像是`email,date,address,IP`可以在schema裡面做手動修正
         - [JSON Schema - string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times)
       - QuickType目前不支援JSON Schema的`duration`格式
-      - 正在考慮不用Quick改成自己寫，一部分是因為原本的結構比較複雜，另一部分是解析章節的部分還是要自己做
+      - 正在考慮不用Quick改成自己寫，一部分是因為原本的結構比較複雜，另一部分是解析章節(chapter)的部分還是要自己做
+        - 使用[轉接器模式](https://en.wikipedia.org/wiki/Adapter_pattern)，將自動產生的程式碼重新包裝成自己要的結構，比自己重新寫更好
     - 測試`models.py`
 
 ## 資源
