@@ -37,8 +37,8 @@ template = env.get_template('TestNote.md')
 - 有兩種方式可以渲染模板
 
 ``` python
-print(template.render(data = test_index_data())) // 輸出字串
-template.stream(data = test_index_data()).dump('note_out.md',encoding='utf8') //經由文件流輸出到指定檔案
+print(template.render(data = test_index_data())) # 輸出字串
+template.stream(data = test_index_data()).dump('note_out.md',encoding='utf8') #經由文件流輸出到指定檔案
 ```
 
 - [How do I render jinja2 output to a file in Python instead of a Browser](https://stackoverflow.com/questions/11857530/how-do-i-render-jinja2-output-to-a-file-in-python-instead-of-a-browser)
