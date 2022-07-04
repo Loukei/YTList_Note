@@ -1,5 +1,11 @@
+
+from dotenv import load_dotenv
+import os
+
+from youtube_api import get_videoInfo
+import requests
+
 import json
-from typing import Dict
 from models.ytvideo import YTVideo, yt_video_from_dict
 from jinja2 import Environment, FileSystemLoader, Template
 
@@ -9,34 +15,45 @@ def set_Jinja2_Env() -> Environment:
     Returns:
         Environment: _description_
     """
-    template_path:str = './code/templates'
+    template_path:str = './templates'
     env = Environment(loader=FileSystemLoader(template_path))
     return env
 
-def render_to_file(template_path:str,data:Dict,output_path:str):
-    env:Environment = set_Jinja2_Env()
-    t:Template = env.get_template(template_path)
-    t.stream(data).dump(output_path,encoding = 'utf8')
-    pass
-
 def test_video_data() -> YTVideo:
-    "Load test video data from file"
-    test_fp:str = "./code/output/bC7o8P_Ste4.json"
+    "Load test data from previous request data file"
+    test_fp:str = "./testdata/bC7o8P_Ste4.json"
     with open(file = test_fp, mode='r', encoding='utf8') as file:
         video:YTVideo = yt_video_from_dict(json.load(file)["items"][0])
-        return video
+    return video
 
-def video_with_chapter():
+def video(vid:str, key:str, template:str, output:str):
+    """Request Youtube info from {vid} and {key}, use {template} to render, then save data to {output} location
+    Args:
+        vid (str): youtube video id
+        key (str): youtube api key
+        template (str): used template file
+        output (str): template render file
+    """
     env:Environment = set_Jinja2_Env()
-    t:Template = env.get_template('TestNote.md')
-    v:YTVideo = test_video_data()
-    # TODO: make template render on out file, check render_to_file()
-    print(t.render(video = v))
+    t:Template = env.get_template(template)
+    res:requests.Response = get_videoInfo(apikey = key,video_id = vid)
+    if(res.status_code == requests.codes.ok):
+        # video resource is under "items" list
+        v:YTVideo = yt_video_from_dict(json.loads(res.text)["items"][0]) 
+        with open(output,mode='w',encoding='utf8') as file:
+            file.write(t.render(video = v))
+    else:
+        res.raise_for_status()
     pass
 
 if __name__ == "__main__":
     """
     get video than turn into markdown notes
     """
-    video_with_chapter()
+    try:
+        load_dotenv()
+        video(vid = "bC7o8P_Ste4", key = os.getenv("YTAPI_KEY"),template="TestNote.md",output="./output/test.md")
+        # video(vid = "bC7o8P_Ste4", key = "",template="TestNote.md",output="./output/test.md")
+    except Exception as e:
+        print(e)
     pass
