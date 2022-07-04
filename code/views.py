@@ -38,8 +38,7 @@ def video(vid:str, key:str, template:str, output:str):
     t:Template = env.get_template(template)
     res:requests.Response = get_videoInfo(apikey = key,video_id = vid)
     if(res.status_code == requests.codes.ok):
-        # video resource is under "items" list
-        v:YTVideo = yt_video_from_dict(json.loads(res.text)["items"][0]) 
+        v:YTVideo = yt_video_from_dict(json.loads(res.text)["items"][0]) # video resource is under "items" list
         with open(output,mode='w',encoding='utf8') as file:
             file.write(t.render(video = v))
     else:
