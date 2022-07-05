@@ -55,9 +55,24 @@ Markdown file
       - 建議先把JSON轉成JSON schema，因為有些文字格式像是`email,date,address,IP`可以在schema裡面做手動修正
         - [JSON Schema - string](https://json-schema.org/understanding-json-schema/reference/string.html#dates-and-times)
       - QuickType目前不支援JSON Schema的`duration`格式
-      - 正在考慮不用Quick改成自己寫，一部分是因為原本的結構比較複雜，另一部分是解析章節(chapter)的部分還是要自己做
-        - 使用[轉接器模式](https://en.wikipedia.org/wiki/Adapter_pattern)，將自動產生的程式碼重新包裝成自己要的結構，比自己重新寫更好
+      ~~- 正在考慮不用Quick改成自己寫，一部分是因為原本的結構比較複雜，另一部分是解析章節(chapter)的部分還是要自己做~~
+        ~~- 使用[轉接器模式](https://en.wikipedia.org/wiki/Adapter_pattern)，將自動產生的程式碼重新包裝成自己要的結構，比自己重新寫更好~~
     - 測試`models.py`
+- 建立URL Dispatch function
+  - 功能
+    - User輸入任意URL，dispatch 自動擷取影片ID or Playlist ID，並且將參數傳給適合的view function
+    - 具體可以參考[URL dispatcher - Django documentation](https://docs.djangoproject.com/en/4.0/topics/http/urls/)
+  - 方法
+    - 目前沒有看到不用框架的URL dispatch lib
+    - 使用`urllib.parse`來實作
+      - 實際感想
+        - 使用解析url的方式簡單但是比較缺乏彈性一些
+          - 舉例:
+            - 同一個影片可以有`https://www.youtube.com/watch?v=8jLOx1hD3_o`與`https://youtu.be/8jLOx1hD3_o`兩種模式，前者只需取得`query`字段，後者則需要取得末尾的路徑，但兩者都會對應到同一個取得影片資訊的函數
+      - 結論
+        - 使用`urllib.parse`缺乏彈性，同一個匹配模式不能用在所有的情況，如果將來要擴充到其他的平台會更複雜
+    - 使用Regex正則表達式代替
+      - 
 
 ## 資源
 
