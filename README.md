@@ -72,7 +72,7 @@ Markdown file
       - 結論
         - 使用`urllib.parse`缺乏彈性，同一個匹配模式不能用在所有的情況，如果將來要擴充到其他的平台會更複雜
     - 使用Regex正則表達式代替
-      - 
+      - 參考網路上的答案[How do I get the YouTube video ID from a URL?](https://stackoverflow.com/questions/3452546/how-do-i-get-the-youtube-video-id-from-a-url)
 
 ## 資源
 

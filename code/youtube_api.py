@@ -2,7 +2,7 @@ import requests
 
 def get_playlistItems(apikey:str,playlistId:str):
     """ get playlistItem info 
-    - [Doc](https://developers.google.com/youtube/v3/docs/playlistItems)
+    - [PlaylistItems](https://developers.google.com/youtube/v3/docs/playlistItems)
     """
     url:str = "https://youtube.googleapis.com/youtube/v3/playlistItems"
     payload:dict = {
@@ -15,6 +15,7 @@ def get_playlistItems(apikey:str,playlistId:str):
 
 def get_videoInfo(apikey:str,video_id:str) -> requests.Response:
     """ get YT video info
+    - [Videos: list](https://developers.google.com/youtube/v3/docs/videos/list)
     """
     url:str = "https://www.googleapis.com/youtube/v3/videos"
     payload:dict = {

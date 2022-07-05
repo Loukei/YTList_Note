@@ -1,5 +1,4 @@
 from typing import List
-from urllib.parse import ParseResult, parse_qs, urlparse, urldefrag, urlsplit
 import re
 import views
 
@@ -9,7 +8,6 @@ def url_routing(url:str):
     Args:
         url (str): _description_
     """
-
     pass
 
 def test_video_urls()->List[str]:
@@ -22,12 +20,9 @@ def test_video_urls()->List[str]:
 def main():
     print('--- Main ---')
     pattern:str = "/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/"
-    
     urls:List[str] = test_video_urls()
-    for(url in urls){
-        print(re.match(pattern, url))
-    }
-    
+    for url in urls:
+        print(f"Match <{url}>: " ,re.search(pattern, url))
     pass
 
 if __name__ == '__main__':
