@@ -1,4 +1,6 @@
-from urllib.parse import ParseResult, urlparse, urldefrag, urlsplit
+from typing import List
+from urllib.parse import ParseResult, parse_qs, urlparse, urldefrag, urlsplit
+import re
 import views
 
 def url_routing(url:str):
@@ -7,20 +9,27 @@ def url_routing(url:str):
     Args:
         url (str): _description_
     """
-    r:ParseResult = urlparse(url=url)
-    none_query_url:str = r._replace(query=None).geturl()
-    if(none_query_url == 'https://www.youtube.com/watch' and r.query["v"]): return f"send to YTvideo {r.query['v']}" # views.video_with_chapter()
-    # if(none_query_url == "https://youtu.be/8k0QPEQxr24")
+
     pass
+
+def test_video_urls()->List[str]:
+    return [
+        "https://www.youtube.com/watch?v=5AJaW5HoztQ",
+        "https://www.youtube.com/watch?v=zJGrxykhVUA",
+        "https://youtu.be/zJGrxykhVUA"
+    ]
 
 def main():
     print('--- Main ---')
-    # url_1:str = "https://www.youtube.com/watch?v=5AJaW5HoztQ"
-    # url_routing(url_1)
-    f = open('code\output\bC7o8P_Ste4.json',mode='r',encoding='utf8')
-    print(type(f))
-    f.close()
+    pattern:str = "/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/"
+    
+    urls:List[str] = test_video_urls()
+    for(url in urls){
+        print(re.match(pattern, url))
+    }
+    
     pass
 
 if __name__ == '__main__':
     main()
+    pass
