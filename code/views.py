@@ -52,7 +52,6 @@ if __name__ == "__main__":
     try:
         load_dotenv()
         video(vid = "bC7o8P_Ste4", key = os.getenv("YTAPI_KEY"),template="TestNote.md",output="./output/test.md")
-        # video(vid = "bC7o8P_Ste4", key = "",template="TestNote.md",output="./output/test.md")
     except Exception as e:
         print(e)
     pass
