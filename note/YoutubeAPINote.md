@@ -13,13 +13,14 @@ Playlist 網址範例:
   - 底下的影片
     - 影片標題
     - 時長
+    - 發布時間
+    - 在playlist的順序
 
-- [youtube api - videos:list](https://developers.google.com/youtube/v3/docs/videos/list?apix_params=%7B%22part%22%3A%5B%22snippet%22%5D%2C%22id%22%3A%5B%22rfscVS0vtbw%22%5D%7D)
-
-
-2. 從YT影片網址抓取內部的章節(Chapter)的段落名稱、時間點
-
-
+- 要收集以上資訊必須要兩種resources
+  - playlists: 
+    - 紀錄播放清單的**標題**、**描述**、發布時間等
+  - PlaylistItems: 
+    - 紀錄播放清單內的影片資訊，包含標題、時長、在影片內的順序等
 
 ## 抓取單一(教學)影片課程大綱
 
