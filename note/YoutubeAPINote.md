@@ -1,3 +1,4 @@
+# Youtube Data API note
 
 ## 目標
 
@@ -79,6 +80,52 @@ Accept: application/json
 - [影片章節](https://support.google.com/youtube/answer/9884579?hl=zh-Hant)
 - [How do I get video durations with YouTube API version 3?](https://stackoverflow.com/questions/15596753/how-do-i-get-video-durations-with-youtube-api-version-3)
 - [Python爬蟲實例 YouTube-使用 YouTube Data API](https://blog.jiatool.com/posts/youtube_spider_api/#-%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F)
+
+---
+
+## 目標
+
+### 抓取影片的資訊
+
+有些課程會使用Youtube Chapter功能把一門課做成單一影片，因此一部影片就是一門課程
+
+影片資訊:
+- title:                影片名稱
+- duration:             影片時長
+- description:          影片敘述
+- chapters:             影片的各個章節，這是YT的一種功能，可以把影片根據起始時間分段
+  - chapter_start       章節開始時間
+  - chapter_description 章節敘述
+
+### 抓取影片清單的資訊
+
+一門課程以播放清單的形式出現，一個章節一部影片
+- 名稱
+- 說明
+- 底下的影片
+  - 影片標題
+  - 時長
+  - 發布時間
+  - 在playlist的順序
+
+## 方法
+
+### get video data
+
+
+
+- [Videos: list](https://developers.google.com/youtube/v3/docs/videos/list)
+
+---
+
+### get playlist data
+
+
+
+- [Playlists: list](https://developers.google.com/youtube/v3/docs/playlists/list)
+- [PlaylistItems: list](https://developers.google.com/youtube/v3/docs/playlistItems/list)
+
+---
 
 ## Ref
 

@@ -1,6 +1,91 @@
 # Develop Diary
 
-## 任務
+## 目標
+
+### 抓取影片的資訊
+
+有些課程會使用Youtube Chapter功能把一門課做成單一影片，因此一部影片就是一門課程
+
+影片資訊:
+- title:                影片名稱
+- duration:             影片時長
+- description:          影片敘述
+- chapters:             影片的各個章節，這是YT的一種功能，可以把影片根據起始時間分段
+  - chapter_start       章節開始時間
+  - chapter_description 章節敘述
+
+### 抓取影片清單的資訊
+
+一門課程以播放清單的形式出現，一個章節一部影片
+- 名稱
+- 說明
+- 底下的影片
+  - 影片標題
+  - 時長
+  - 發布時間
+  - 在playlist的順序
+
+## 方法
+
+### 1. 使用 Youtube Data API v3
+
+### 2. 使用 爬蟲
+
+#### 打開撥放清單的網頁然後直接左鍵選取複製貼上
+
+``` txt
+6:09
+現正播放
+Introduction to Git | Google IT Automation with Python Certificate
+Google Career Certificates
+
+2
+
+55:58
+現正播放
+Github Collaboration Tools | Google IT Automation with Python Certificate
+Google Career Certificates
+
+3
+
+58:11
+現正播放
+GitHub Tutorial Beginners | Google IT Automation with Python Certificate
+Google Career Certificates
+```
+
+##### 缺點: 
+
+需要每次手動整理內容，因為格式很亂，更好一點方法是下載成`html`然後解析內容
+
+#### 使用瀏覽器工具
+
+- [Learning Notes Plus](https://chrome.google.com/webstore/detail/learning-notes-plus/oldidllbanodgoopjgjfnphdioefllcd?utm_source=chrome-ntp-icon)
+
+##### 評價:
+
+**LN+**建立在notion之上，而且目前使用起來他只是簡單的擷取影片標題與鏈結，因此課程筆記的組織方式就不是那麼有彈性，比如有些人會在筆記裡加入GUID等特定編號。
+
+對只想立刻開始的使用者，直接用**LN+**很方便且不用太多設定
+
+#### 直接在瀏覽器 Console 裡撰寫爬蟲
+
+- [How to use the browser console to scrape and save data in a file with JavaScript](https://www.freecodecamp.org/news/how-to-use-the-browser-console-to-scrape-and-save-data-in-a-file-with-javascript-b40f4ded87ef/)
+
+#### 無程式碼的抓取工具
+
+SelectorGadget + XPath Helper
+
+##### 評價:
+
+使用這類工具要有一點爬蟲知識，理解網頁結構與XPath、CSS selector之類，才能很好的使用
+
+### 3. 使用低程式碼的流程工具
+
+- [Pipedream: Connect APIs, Remarkably Fast](https://pipedream.com/)
+- [n8n](https://github.com/n8n-io/n8n)
+
+## 任務紀錄
 
 - 搞懂輸出方式是否符合需求`template.py`
   - 目的
