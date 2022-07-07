@@ -37,3 +37,4 @@ Markdown file
   - [PlaylistItems: list](https://developers.google.com/youtube/v3/docs/playlistItems/list)
   - [Google API Client](https://github.com/googleapis/google-api-python-client)
 - [Jinja2](http://docs.jinkan.org/docs/jinja2/)
+- [YouTube Data](https://apiharmony-open.mybluemix.net/public/apis/google_youtube_api#_information)
