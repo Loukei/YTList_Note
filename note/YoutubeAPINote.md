@@ -112,7 +112,22 @@ Accept: application/json
 
 ### get video data
 
+**Videos: list**
 
+用來抓取(1到多個)影片資訊
+
+**Request parameter**
+
+- part: 要求YT Server提供的影片資訊細節，基本上我們需要
+  - `snippet`: 標題、描述、頻道名稱、上傳時間
+  - `contentDetails`: 時長
+- id: 影片的資源ID，如果要一次傳回多部影片也可以使用list形式
+- key: Youtube Data API key
+
+**額外的工作**
+
+video resource 沒有紀錄底下的Chapter資訊，相對的這些資訊記錄在影片描述裡面。
+參見[How do I get info about a Youtube video's chapters from the API?](https://stackoverflow.com/questions/63821605/how-do-i-get-info-about-a-youtube-videos-chapters-from-the-api)
 
 - [Videos: list](https://developers.google.com/youtube/v3/docs/videos/list)
 
@@ -120,9 +135,18 @@ Accept: application/json
 
 ### get playlist data
 
+playlist比較複雜，我們需要至少2個Method
 
+**Playlists: list**
+
+用來提供Playlist本身資料，包含名稱、建立者、描述、發布時間
 
 - [Playlists: list](https://developers.google.com/youtube/v3/docs/playlists/list)
+
+**PlaylistItems: list**
+
+用來提供Playlist底下的有那些影片以及那些影片的訊息
+
 - [PlaylistItems: list](https://developers.google.com/youtube/v3/docs/playlistItems/list)
 
 ---
