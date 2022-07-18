@@ -14,4 +14,4 @@
 
 ## Duration
 
-{{ video.content_details.duration }}
+{{ video.contentDetails.duration }}

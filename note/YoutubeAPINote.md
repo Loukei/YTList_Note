@@ -123,6 +123,7 @@ Accept: application/json
   - `contentDetails`: 時長
 - id: 影片的資源ID，如果要一次傳回多部影片也可以使用list形式
 - key: Youtube Data API key
+- fields
 
 **額外的工作**
 

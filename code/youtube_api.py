@@ -10,6 +10,7 @@ def get_playlistItems(apikey:str,playlistId:str):
         "playlistId": playlistId,
         "key": apikey,
         "Accept": "application/json",
+        "fields": "nextPageToken,items(snippet(publishedAt,title,description,channelTitle,position)),pageInfo"
     }
     return requests.get(url, params=payload)
 
@@ -23,6 +24,7 @@ def get_videoInfo(apikey:str,video_id:str) -> requests.Response:
         "id": video_id,
         "key": apikey,
         "Accept": "application/json",
+        "fields": "items(id,snippet(publishedAt,title,description,channelTitle,defaultLanguage,localized(title,description)),contentDetails(duration,caption))"
     }
     return requests.get(url, params=payload)
 

@@ -1,12 +1,7 @@
-
-from dotenv import load_dotenv
-import os
-
+import dotenv, os # read environment settings in .env
 from youtube_api import get_videoInfo
 import requests
-
 import json
-from models.ytvideo import YTVideo, yt_video_from_dict
 from jinja2 import Environment, FileSystemLoader, Template
 
 def set_Jinja2_Env() -> Environment:
@@ -19,12 +14,12 @@ def set_Jinja2_Env() -> Environment:
     env = Environment(loader=FileSystemLoader(template_path))
     return env
 
-def test_video_data() -> YTVideo:
-    "Load test data from previous request data file"
-    test_fp:str = "./testdata/bC7o8P_Ste4.json"
-    with open(file = test_fp, mode='r', encoding='utf8') as file:
-        video:YTVideo = yt_video_from_dict(json.load(file)["items"][0])
-    return video
+# def test_video_data() -> YTVideo:
+#     "Load test data from previous request data file"
+#     test_fp:str = "./testdata/bC7o8P_Ste4.json"
+#     with open(file = test_fp, mode='r', encoding='utf8') as file:
+#         video:YTVideo = yt_video_from_dict(json.load(file)["items"][0])
+#     return video
 
 def video(vid:str, key:str, template:str, output:str):
     """Request Youtube info from {vid} and {key}, use {template} to render, then save data to {output} location
@@ -38,9 +33,9 @@ def video(vid:str, key:str, template:str, output:str):
     t:Template = env.get_template(template)
     res:requests.Response = get_videoInfo(apikey = key,video_id = vid)
     if(res.status_code == requests.codes.ok):
-        v:YTVideo = yt_video_from_dict(json.loads(res.text)["items"][0]) # video resource is under "items" list
+        jsonobj = json.loads(res.text)["items"][0]
         with open(output,mode='w',encoding='utf8') as file:
-            file.write(t.render(video = v))
+            file.write(t.render(video = jsonobj))
     else:
         res.raise_for_status()
     pass
@@ -50,7 +45,7 @@ if __name__ == "__main__":
     get video than turn into markdown notes
     """
     try:
-        load_dotenv()
+        dotenv.load_dotenv()
         video(vid = "bC7o8P_Ste4", key = os.getenv("YTAPI_KEY"),template="TestNote.md",output="./output/test.md")
     except Exception as e:
         print(e)
