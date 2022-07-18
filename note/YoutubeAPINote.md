@@ -154,3 +154,7 @@ playlist比較複雜，我們需要至少2個Method
 ## Ref
 
 - [Google API Client](https://github.com/googleapis/google-api-python-client)
+
+### Related Article
+
+- [How to get the title of a playlist from the YouTube API](https://stackoverflow.com/questions/68648806/how-to-get-the-title-of-a-playlist-from-the-youtube-api)

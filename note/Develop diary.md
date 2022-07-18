@@ -136,3 +136,6 @@ SelectorGadget + XPath Helper
         - 使用`urllib.parse`缺乏彈性，同一個匹配模式不能用在所有的情況，如果將來要擴充到其他的平台會更複雜
     - 使用Regex正則表達式代替
       - 參考網路上的答案[How do I get the YouTube video ID from a URL?](https://stackoverflow.com/questions/3452546/how-do-i-get-the-youtube-video-id-from-a-url)
+- URL呼叫
+  - `fields`參數可以大量減少回傳的資料量，最好使用
+    - [How to get the title of a playlist from the YouTube API](https://stackoverflow.com/questions/68648806/how-to-get-the-title-of-a-playlist-from-the-youtube-api)

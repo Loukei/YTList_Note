@@ -13,7 +13,7 @@ Turn youtube playlist or youtube video title into markdown note.
 ### 輸入:
 
 ``` python
-( yt_url:str, yt_apikey:str,  template_path:str)
+( yt_url:str, yt_apikey:str, template_path:str)
 ```
 
 - yt_url:         Youtube 網址，可能是**playlist網址**或**影片網址**
