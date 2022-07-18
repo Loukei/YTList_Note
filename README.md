@@ -29,6 +29,13 @@ Markdown file
 這個腳本在執行時通過讀取YT的網址，將播放清單依照User事先定義好的模板檔案`template_path`渲染成想要的樣子。
 以播放清單為例，多數會使用列表式的清單整理成章節標題，但也有些情況下會使用表格來處理。
 
+## TODO
+
+- (2022-07-18_下午:05:40)
+  - 對URL的解析，需要了解regex pattern分發機制，把網址裡的`video_id`與`playlist_id`提取出來
+  - 撰寫一個解析Chapter的函數來把章節資料提取出來
+  - 撰寫Playlist的view
+
 ## 資源
 
 - Youtube API resources

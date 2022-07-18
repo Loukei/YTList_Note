@@ -14,14 +14,22 @@ def set_Jinja2_Env() -> Environment:
     env = Environment(loader=FileSystemLoader(template_path))
     return env
 
-# def test_video_data() -> YTVideo:
-#     "Load test data from previous request data file"
-#     test_fp:str = "./testdata/bC7o8P_Ste4.json"
-#     with open(file = test_fp, mode='r', encoding='utf8') as file:
-#         video:YTVideo = yt_video_from_dict(json.load(file)["items"][0])
-#     return video
+def get_playlist(playlistId:str, key:str, template:str, output:str):
+    """request playlist info, render it to course note(playlist) #TODO
+        
+    Args:
+        playlistId (str): _description_
+        key (str): _description_
+        template (str): _description_
+        output (str): _description_
+    """
+    env:Environment = set_Jinja2_Env()
+    t:Template = env.get_template(template)
+    # request playlistitems
+    #  if resultsPerPage < totalResults, then call next page for more listitems
+    pass
 
-def video(vid:str, key:str, template:str, output:str):
+def get_video(vid:str, key:str, template:str, output:str):
     """Request Youtube info from {vid} and {key}, use {template} to render, then save data to {output} location
     Args:
         vid (str): youtube video id
@@ -46,7 +54,7 @@ if __name__ == "__main__":
     """
     try:
         dotenv.load_dotenv()
-        video(vid = "bC7o8P_Ste4", key = os.getenv("YTAPI_KEY"),template="TestNote.md",output="./output/test.md")
+        get_video(vid = "bC7o8P_Ste4", key = os.getenv("YTAPI_KEY"),template="TestNote.md",output="./output/test.md")
     except Exception as e:
         print(e)
     pass
