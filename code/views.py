@@ -24,21 +24,20 @@ def render_playlist(playlistId:str, key:str, template:str, output:str):
         output (str): _description_
     """
     env:Environment = set_Jinja2_Env()
-    t:Template = env.get_template(template)
-    print("---start requests---")
-    res:requests.Response = get_playlistItems(playlistId,key)
-    print(res.text)
-    # if(res.status_code == requests.codes.ok):
-    #     jsonobj = json.loads(res.text)
-    #     print(jsonobj)
-    #     # request playlistitems
-    #     #  if resultsPerPage < totalResults, then call next page for more listitems
-    #     # resultsPerPage:int = jsonobj["pageInfo"]["resultsPerPage"]
-    #     # totalResults:int = jsonobj["pageInfo"]["totalResults"]
-    #     # print(resultsPerPage)
-    #     # print(totalResults)
-    # else:
-    #     res.raise_for_status()
+    t:Template = env.get_template(template) #TODO handle null template exception
+    res:requests.Response = get_playlistItems(apikey=key, playlistId=playlistId)
+    if(res.status_code == requests.codes.ok):
+        jsonobj = json.loads(res.text)
+        print(jsonobj)
+        # request playlistitems
+        #  if resultsPerPage < totalResults, then call next page for more listitems
+        resultsPerPage:int = jsonobj["pageInfo"]["resultsPerPage"]
+        totalResults:int = jsonobj["pageInfo"]["totalResults"]
+        print(resultsPerPage)
+        print(totalResults)
+    else:
+        print("Error:" + res.status_code)
+        res.raise_for_status()
     pass
 
 def render_video(vid:str, key:str, template:str, output:str):
@@ -67,12 +66,8 @@ if __name__ == "__main__":
     try:
         dotenv.load_dotenv()
         apikey:str = os.getenv("YTAPI_KEY")
-        print(apikey)
         # render_video(vid = "bC7o8P_Ste4", key = apikey,template="VideoClassNote.md",output="./output/test.md")
-        # render_playlist(playlistId= "PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4", key = apikey, template = "", output = "")
-        res:requests.Response = get_playlistItems("PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4",apikey)
-        # print(res.text)
-        print(res.request.path_url)
+        render_playlist(playlistId= "PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4", key = apikey, template = "PlaylistClassNote.md", output = "")
     except Exception as e:
         print(f"Error:{e}")
     pass
