@@ -159,3 +159,4 @@ playlist比較複雜，我們需要至少2個Method
 ### Related Article
 
 - [How to get the title of a playlist from the YouTube API](https://stackoverflow.com/questions/68648806/how-to-get-the-title-of-a-playlist-from-the-youtube-api)
+- [How to use the fields parameter](https://developers.google.com/youtube/v3/getting-started)

@@ -35,6 +35,7 @@ Markdown file
   - 對URL的解析，需要了解regex pattern分發機制，把網址裡的`video_id`與`playlist_id`提取出來
   - 撰寫一個解析Chapter的函數來把章節資料提取出來
   - 撰寫Playlist的view
+  - 整理YT API 筆記 與 devlop log
 
 ## 資源
 

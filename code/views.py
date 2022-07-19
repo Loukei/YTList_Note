@@ -1,5 +1,5 @@
 import dotenv, os # read environment settings in .env
-from youtube_api import get_videoInfo
+from youtube_api import get_videoInfo, get_playlistItems
 import requests
 import json
 from jinja2 import Environment, FileSystemLoader, Template
@@ -14,7 +14,7 @@ def set_Jinja2_Env() -> Environment:
     env = Environment(loader=FileSystemLoader(template_path))
     return env
 
-def get_playlist(playlistId:str, key:str, template:str, output:str):
+def render_playlist(playlistId:str, key:str, template:str, output:str):
     """request playlist info, render it to course note(playlist) #TODO
         
     Args:
@@ -25,11 +25,23 @@ def get_playlist(playlistId:str, key:str, template:str, output:str):
     """
     env:Environment = set_Jinja2_Env()
     t:Template = env.get_template(template)
-    # request playlistitems
-    #  if resultsPerPage < totalResults, then call next page for more listitems
+    print("---start requests---")
+    res:requests.Response = get_playlistItems(playlistId,key)
+    print(res.text)
+    # if(res.status_code == requests.codes.ok):
+    #     jsonobj = json.loads(res.text)
+    #     print(jsonobj)
+    #     # request playlistitems
+    #     #  if resultsPerPage < totalResults, then call next page for more listitems
+    #     # resultsPerPage:int = jsonobj["pageInfo"]["resultsPerPage"]
+    #     # totalResults:int = jsonobj["pageInfo"]["totalResults"]
+    #     # print(resultsPerPage)
+    #     # print(totalResults)
+    # else:
+    #     res.raise_for_status()
     pass
 
-def get_video(vid:str, key:str, template:str, output:str):
+def render_video(vid:str, key:str, template:str, output:str):
     """Request Youtube info from {vid} and {key}, use {template} to render, then save data to {output} location
     Args:
         vid (str): youtube video id
@@ -54,7 +66,13 @@ if __name__ == "__main__":
     """
     try:
         dotenv.load_dotenv()
-        get_video(vid = "bC7o8P_Ste4", key = os.getenv("YTAPI_KEY"),template="TestNote.md",output="./output/test.md")
+        apikey:str = os.getenv("YTAPI_KEY")
+        print(apikey)
+        # render_video(vid = "bC7o8P_Ste4", key = apikey,template="VideoClassNote.md",output="./output/test.md")
+        # render_playlist(playlistId= "PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4", key = apikey, template = "", output = "")
+        res:requests.Response = get_playlistItems("PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4",apikey)
+        # print(res.text)
+        print(res.request.path_url)
     except Exception as e:
-        print(e)
+        print(f"Error:{e}")
     pass
