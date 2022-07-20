@@ -27,27 +27,22 @@ def render_playlist(playlistId:str, key:str, template:str, output:str):
     t:Template = env.get_template(template)
     
     itemlists = [] # save all videos metadata in playlists
-    while True:
-        # Request 1st playlistItems
-        res:requests.Response = get_playlistItems(apikey=key, playlistId=playlistId)
-        # if response is ok
-        if(res.status_code == requests.codes.ok):
-            jsonobj = json.loads(res.text)
-            # check if there's another page #TODO
-            #   "totalResults" means there's how many video in this playlist, if there's 21 item, the index([items][position]) is 0-20
-            #   "nextPageToken" is represent if there's next page, the last page don't have this attribute
-            nextPageToken:str = jsonobj["nextPageToken"]
-            if(nextPageToken is not None):
-                # load page item into itemlist
-                itemlists.append(jsonobj["items"])
-                res:requests.Response = get_playlistItems(apikey=key, playlistId=playlistId, pageToken=nextPageToken)
-                continue
-            else:
-                break
-        else: # response not ok
-            res.raise_for_status()
+    # Request 1st playlistItems
+    reply:requests.Response = get_playlistItems(apikey=key, playlistId=playlistId)
+    # call other pages data
+    while (reply.status_code == requests.codes.ok):
+        jsonobj:dict = json.loads(reply.text)
+        nextPageToken:str = jsonobj.get("nextPageToken",None)
+        itemlists.extend(jsonobj["items"])
+        reply = get_playlistItems(apikey=key, playlistId=playlistId, pageToken=nextPageToken)
+        if(nextPageToken is None):
             break
-
+    # If status_code is 200 all the time, then
+    if(reply.status_code != requests.codes.ok):
+        reply.raise_for_status()
+    else:
+        # TODO: call playlist(title,description), then render to template file
+        print(itemlists[0])
     pass
 
 def render_video(vid:str, key:str, template:str, output:str):
@@ -77,11 +72,7 @@ if __name__ == "__main__":
         dotenv.load_dotenv()
         apikey:str = os.getenv("YTAPI_KEY")
         # render_video(vid = "bC7o8P_Ste4", key = apikey,template="VideoClassNote.md",output="./output/test.md")
-        # render_playlist(playlistId= "PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4", key = apikey, template = "PlaylistClassNote.md", output = "")
-        
-        playlistId = "PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4"
-        res:requests.Response = get_playlistItems(apikey=apikey, playlistId=playlistId)
-        print(res.)
+        render_playlist(playlistId= "PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4", key = apikey, template = "PlaylistClassNote.md", output = "")
     except TemplateNotFound as te:
         print(f"Template not found error: {str(te)}")
     except Exception as e:
