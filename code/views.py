@@ -2,7 +2,7 @@ import dotenv, os # read environment settings in .env
 from youtube_api import get_videoInfo, get_playlistItems
 import requests
 import json
-from jinja2 import Environment, FileSystemLoader, Template
+from jinja2 import Environment, FileSystemLoader, Template, TemplateNotFound
 
 def set_Jinja2_Env() -> Environment:
     """Set environment with filesystem
@@ -24,7 +24,7 @@ def render_playlist(playlistId:str, key:str, template:str, output:str):
         output (str): _description_
     """
     env:Environment = set_Jinja2_Env()
-    t:Template = env.get_template(template) #TODO handle null template exception
+    t:Template = env.get_template(template)
     res:requests.Response = get_playlistItems(apikey=key, playlistId=playlistId)
     if(res.status_code == requests.codes.ok):
         jsonobj = json.loads(res.text)
@@ -68,6 +68,8 @@ if __name__ == "__main__":
         apikey:str = os.getenv("YTAPI_KEY")
         # render_video(vid = "bC7o8P_Ste4", key = apikey,template="VideoClassNote.md",output="./output/test.md")
         render_playlist(playlistId= "PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4", key = apikey, template = "PlaylistClassNote.md", output = "")
+    except TemplateNotFound as te:
+        print(f"Template not found error: {str(te)}")
     except Exception as e:
-        print(f"Error:{e}")
+        print(f"Error:{str(e)}")
     pass
