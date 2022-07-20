@@ -1,6 +1,7 @@
+from typing import Optional
 import requests
 
-def get_playlistItems(apikey:str,playlistId:str):
+def get_playlistItems(apikey:str,playlistId:str,pageToken:Optional[str] = None):
     """ get playlistItem info 
     - [PlaylistItems](https://developers.google.com/youtube/v3/docs/playlistItems)
     """
@@ -9,6 +10,7 @@ def get_playlistItems(apikey:str,playlistId:str):
         "part": "snippet",
         "playlistId": playlistId,
         "key": apikey,
+        "pageToken": pageToken,
         "Accept": "application/json",
         "fields": "nextPageToken,items(snippet(publishedAt,title,description,channelTitle,position)),pageInfo"
     }
