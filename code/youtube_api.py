@@ -1,6 +1,17 @@
 from typing import Optional
 import requests
 
+def get_playlists(apikey:str,playlistId:str):
+    url:str = "https://www.googleapis.com/youtube/v3/playlists"
+    payload:dict = {
+        "part": "snippet",
+        "id": playlistId,
+        "key": apikey,
+        "Accept": "application/json",
+        "fields": "items(snippet(publishedAt,title,description,channelTitle,defaultLanguage,localized))"
+    }
+    return requests.get(url, params=payload)
+
 def get_playlistItems(apikey:str,playlistId:str,pageToken:Optional[str] = None):
     """ get playlistItem info 
     - [PlaylistItems](https://developers.google.com/youtube/v3/docs/playlistItems)
@@ -33,6 +44,10 @@ def get_videoInfo(apikey:str,video_id:str) -> requests.Response:
 if __name__ == "__main__":
     "test here"
     playlistid_1:str = "PLQgT9G4SVR-LQfix29B8zYvM-Pk-adPG_" # "freeCodeCamp C++ courses"
-    reply = get_playlistItems(apikey="",playlistId=playlistid_1)
+    playlistid_2:str = "PLhOoxQxz2yFOcJoLoPRyYzjqCbddeOjP4" # "Dimension 20: Fantasy High"
+    apikey:str = ""
+    reply = get_playlists(apikey=apikey,playlistId=playlistid_1)
+    print(reply.text) 
+    reply = get_playlists(apikey=apikey,playlistId=playlistid_2)
     print(reply.text)
     pass
