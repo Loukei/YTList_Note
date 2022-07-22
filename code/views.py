@@ -2,6 +2,7 @@ import dotenv, os # read environment settings in .env
 from youtube_api import get_videoInfo, get_playlistItems
 import requests
 import json
+from typing import List
 from jinja2 import Environment, FileSystemLoader, Template, TemplateNotFound
 
 def set_Jinja2_Env() -> Environment:
@@ -26,7 +27,7 @@ def render_playlist(playlistId:str, key:str, template:str, output:str):
     env:Environment = set_Jinja2_Env()
     t:Template = env.get_template(template)
     
-    itemlists = [] # save all videos metadata in playlists
+    itemlists:List = [] # save all videos metadata in playlists
     # Request 1st playlistItems
     reply:requests.Response = get_playlistItems(apikey=key, playlistId=playlistId)
     # call other pages data
@@ -41,8 +42,12 @@ def render_playlist(playlistId:str, key:str, template:str, output:str):
     if(reply.status_code != requests.codes.ok):
         reply.raise_for_status()
     else:
-        # TODO: call playlist(title,description), then render to template file
-        print(itemlists[0])
+        # TODO: 
+        # - call playlist(title,description), then render to template file
+        # - merge itemlists and playlist in one dict
+        # print(itemlists)
+        with open('.\output\itemlists_.txt', mode='w', encoding='utf8') as output:
+            output.write(t.render(items = itemlists))
     pass
 
 def render_video(vid:str, key:str, template:str, output:str):

@@ -66,5 +66,15 @@ except TemplateNotFound as te:
 在給予的模板檔案為空字串的情況下，會產生`TemplateNotFound`的錯誤
 
 - [API — Jinja2 2.7 documentation](http://docs.jinkan.org/docs/jinja2/api.html?highlight=templatenotfound#jinja2.TemplateNotFound)
-
 - [python - Jinja2 Exception Handling - Stack Overflow](https://stackoverflow.com/questions/21692387/jinja2-exception-handling)
+
+### 控制語法
+
+``` txt
+{% for item in items %}
+- {{item.snippet.title}}
+{% endfor %}
+```
+
+- [模板设计者文档 — Jinja2 2.7 documentation](http://docs.jinkan.org/docs/jinja2/templates.html)
+- [python - Jinja2 for loop with conditions - Stack Overflow](https://stackoverflow.com/questions/12655155/jinja2-for-loop-with-conditions)

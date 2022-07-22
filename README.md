@@ -35,6 +35,7 @@ Markdown file
 - 撰寫一個解析Chapter的函數來把章節資料提取出來
 - 撰寫Playlist的view
   - 將`playlists`添加回`render_playlist()`函數
+  - 把`itemlists`與`playlist`合併成一個字典
 - 整理YT API 筆記 與 devlop log
 
 ## 資源
